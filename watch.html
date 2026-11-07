@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fffdf5">
+  <title>Watch videos — SasaTube</title>
+  <link rel="icon" href="assets/rabbit.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/player.css">
+  <script src="js/videos.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/player.js" defer></script>
+</head>
+<body class="watch-page">
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/rabbit.svg" alt=""><span>SasaTube</span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a class="active" href="watch.html">Videos</a></nav>
+    <span class="nav-carrot" aria-hidden="true">🥕</span>
+  </header>
+
+  <main class="watch-layout" id="watchLayout">
+    <section class="watch-main">
+      <div class="section-heading">
+        <div><p class="eyebrow">A COZY LITTLE SCREENING ROOM</p><h1>Pick a video, <em>get comfy.</em></h1></div>
+        <button class="icon-button help-button" id="helpButton" aria-label="Show keyboard shortcuts" title="Keyboard shortcuts">?</button>
+      </div>
+
+      <section class="player-card" id="playerCard" aria-label="Video player">
+        <div class="video-frame" id="videoFrame">
+          <video id="video" playsinline preload="metadata">
+            Your browser does not support HTML5 video.
+          </video>
+          <div class="video-empty" id="videoEmpty"><span>🐰</span><strong>Your cozy screen is ready</strong><small>Choose a video from the garden below.</small></div>
+          <div class="center-play" id="centerPlay"><button id="bigPlay" aria-label="Play video">▶</button></div>
+          <div class="custom-controls" id="customControls">
+            <div class="seek-row"><span id="currentTime">0:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek video"><span id="duration">0:00</span></div>
+            <div class="control-row">
+              <div class="control-group">
+                <button class="control-btn play-control" id="playButton" aria-label="Play">▶</button>
+                <button class="control-btn" id="backButton" aria-label="Rewind 10 seconds">↶10</button>
+                <button class="control-btn" id="forwardButton" aria-label="Forward 10 seconds">10↷</button>
+                <button class="control-btn" id="muteButton" aria-label="Mute">🔊</button>
+                <input class="volume-range" id="volume" type="range" min="0" max="1" step=".05" value=".8" aria-label="Volume">
+              </div>
+              <div class="control-group">
+                <label class="sr-only" for="speed">Playback speed</label>
+                <select id="speed" class="speed-select" aria-label="Playback speed">
+                  <option value=".5">0.5×</option><option value=".75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="1.75">1.75×</option><option value="2">2×</option>
+                </select>
+                <button class="control-btn" id="captionButton" aria-label="Toggle subtitles" title="Subtitles">CC</button>
+                <button class="control-btn" id="pipButton" aria-label="Picture in picture" title="Picture in picture">▣</button>
+                <button class="control-btn" id="theaterButton" aria-label="Theater mode" title="Theater mode">▭</button>
+                <button class="control-btn" id="miniButton" aria-label="Mini player" title="Mini player">↗</button>
+                <button class="control-btn" id="fullscreenButton" aria-label="Fullscreen">⛶</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div><p class="now-playing">NOW PLAYING <span>✿</span></p><h2 id="videoTitle">Choose your first video</h2><p id="videoDescription">A little something to brighten your day.</p></div>
+          <button id="favoriteButton" class="favorite-button" aria-pressed="false" aria-label="Add to favorites">♡ <span>Favorite</span></button>
+        </div>
+      </section>
+
+      <section class="library-section" id="librarySection">
+        <div class="library-heading"><div><p class="eyebrow">THE VIDEO GARDEN</p><h2>Browse the collection <span>🌷</span></h2></div><span class="video-count" id="videoCount"></span></div>
+        <div class="library-tools">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Find a video..." aria-label="Search videos"></label>
+          <select id="filterSelect" aria-label="Filter videos"><option value="all">All videos</option><option value="favorites">♡ Favorites</option><option value="history">Recently watched</option></select>
+          <select id="sortSelect" aria-label="Sort videos"><option value="added">Recently added</option><option value="watched">Recently watched</option><option value="az">A to Z</option></select>
+        </div>
+        <div class="video-grid" id="videoGrid"></div>
+        <p class="empty-state" id="emptyState" hidden>No videos found in this little patch. Try another search 🌱</p>
+      </section>
+
+      <section class="recent-section" id="recentSection"><div class="library-heading"><div><p class="eyebrow">YOUR LITTLE TRAIL</p><h2>Recently watched <span>🐾</span></h2></div></div><div class="recent-list" id="recentList"></div></section>
+    </section>
+
+    <aside class="playlist-panel">
+      <div class="playlist-title"><div><p class="eyebrow">YOUR WATCH LIST</p><h2>Up next <span>🥕</span></h2></div><span class="playlist-count" id="playlistCount">0 videos</span></div>
+      <div class="playlist-actions">
+        <button id="previousButton" class="soft-button" aria-label="Previous video">← Previous</button><button id="nextButton" class="soft-button" aria-label="Next video">Next →</button>
+      </div>
+      <div class="playlist-options">
+        <label><input type="checkbox" id="autoplayToggle" checked> Autoplay next</label>
+        <button id="shuffleButton" class="text-toggle" aria-pressed="false">⤨ Shuffle</button>
+        <button id="repeatButton" class="text-toggle" aria-pressed="false">↻ Off</button>
+      </div>
+      <div class="playlist-items" id="playlistItems"></div>
+      <div class="garden-tip"><span>🌼</span><p><strong>Little reminder</strong><br>Take a stretch and a sip of water between videos.</p></div>
+    </aside>
+  </main>
+
+  <div class="mini-player" id="miniPlayer" hidden>
+    <div class="mini-top"><span id="miniTitle">Now playing</span><button id="restoreMini" aria-label="Restore player">□</button><button id="closeMini" aria-label="Close mini player">×</button></div>
+    <video id="miniVideo" muted playsinline></video>
+  </div>
+
+  <dialog id="helpDialog" class="help-dialog">
+    <div class="dialog-heading"><div><p class="eyebrow">A LITTLE CHEAT SHEET</p><h2>Keyboard shortcuts</h2></div><button id="closeHelp" class="icon-button" aria-label="Close">×</button></div>
+    <div class="shortcut-list"><span>Play / Pause</span><kbd>Space</kbd><span>Rewind 5 seconds</span><kbd>←</kbd><span>Forward 5 seconds</span><kbd>→</kbd><span>Volume up / down</span><kbd>↑ / ↓</kbd><span>Fullscreen</span><kbd>F</kbd><span>Mute / unmute</span><kbd>M</kbd></div>
+    <p class="dialog-note">Shortcuts work when the video player is active, not while typing.</p>
+  </dialog>
+  <footer class="site-footer">A soft place to pause, play, and feel happy. <span>♡</span></footer>
+</body>
+</html>

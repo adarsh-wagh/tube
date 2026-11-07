@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <title>daisy.svg</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <g>
+      <ellipse cx="50" cy="21.285" rx="9.572" ry="19.143" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="50" cy="78.715" rx="9.572" ry="19.143" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="21.285" cy="50" rx="19.143" ry="9.572" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="78.715" cy="50" rx="19.143" ry="9.572" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M36.668 23.131 C44.144 30.607 47.174 39.698 43.436 43.436 C39.698 47.174 30.607 44.144 23.131 36.668 C15.655 29.192 12.625 20.101 16.363 16.363 C20.101 12.625 29.192 15.655 36.668 23.131 Z" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M76.869 36.668 C69.393 44.144 60.302 47.174 56.564 43.436 C52.826 39.698 55.856 30.607 63.332 23.131 C70.808 15.655 79.899 12.625 83.637 16.363 C87.375 20.101 84.345 29.192 76.869 36.668 Z" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M36.668 76.869 C29.192 84.345 20.101 87.375 16.363 83.637 C12.625 79.899 15.655 70.808 23.131 63.332 C30.607 55.856 39.698 52.826 43.436 56.564 C47.174 60.302 44.144 69.393 36.668 76.869 Z" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M76.869 63.332 C84.345 70.808 87.375 79.899 83.637 83.637 C79.899 87.375 70.808 84.345 63.332 76.869 C55.856 69.393 52.826 60.302 56.564 56.564 C60.302 52.826 69.393 55.856 76.869 63.332 Z" fill="#ffffff" stroke="#51463e" stroke-width="2.4" stroke-linejoin="round"/>
+    </g>
+    <circle cx="50" cy="50" r="13.4" fill="#f6d56d" stroke="#51463e" stroke-width="2.4"/>
+  </g>
+</svg>
